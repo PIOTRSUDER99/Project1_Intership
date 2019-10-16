@@ -24,7 +24,8 @@ public class DataItemService {
 
     public boolean addDataItem(DataItem dataItem)
     {
-        return dataItemDao.insertDataItem(dataItem);
+        UUID id = UUID.randomUUID(); //Generate random id
+        return dataItemDao.insertDataItem(id, dataItem);
     }
 
     public DataItem getDataItemById(UUID id)

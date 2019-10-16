@@ -2,12 +2,7 @@ package com.trail1.demo1.dao;
 
 import com.trail1.demo1.model.DataItem;
 
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-import java.util.Iterator;
-
-import java.util.HashMap;
+import java.util.*;
 
 import org.springframework.stereotype.Repository;
 
@@ -28,7 +23,7 @@ public class DataItemDaoAccessService implements DataItemDao {
     //PROBLEMATIC FOR SOME REASON!!!!!!!!!!!!!!!!!!!!!!!!!!
     @Override
     public List<DataItem> getAllDataItems() {
-        List<DataItem> DataItemsList = new List<DataItem>;
+        List<DataItem> DataItemsList = new ArrayList();
 
         Set setOfKeys = DB.keySet();
         Iterator iter = setOfKeys.iterator();

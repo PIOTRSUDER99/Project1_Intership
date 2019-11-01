@@ -3,6 +3,7 @@ package com.trail1.demo1.service;
 
 import com.trail1.demo1.dao.DataItemDao;
 import com.trail1.demo1.model.DataItem;
+import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -42,5 +43,10 @@ public class DataItemService {
     public boolean updateDataItem(UUID id, DataItem dataItem)
     {
         return dataItemDao.updateDataItemById(id, dataItem);
+    }
+
+    public List<Pair<UUID, DataItem>> getAllDataItems()
+    {
+        return dataItemDao.getAllDataItems();
     }
 }

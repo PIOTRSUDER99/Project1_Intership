@@ -4,6 +4,7 @@ import com.trail1.demo1.model.DataItem;
 
 import java.util.*;
 
+import javafx.util.Pair;
 import org.springframework.stereotype.Repository;
 
 
@@ -22,8 +23,8 @@ public class DataItemDaoAccessService implements DataItemDao {
 
     //PROBLEMATIC FOR SOME REASON!!!!!!!!!!!!!!!!!!!!!!!!!!
     @Override
-    public List<DataItem> getAllDataItems() {
-        List<DataItem> DataItemsList = new ArrayList();
+    public List<Pair<UUID, DataItem>> getAllDataItems() {
+        List<Pair<UUID, DataItem>> DataItemsAndIDsList = new ArrayList();
 
         Set setOfKeys = DB.keySet();
         Iterator iter = setOfKeys.iterator();
@@ -31,9 +32,10 @@ public class DataItemDaoAccessService implements DataItemDao {
         while (iter.hasNext())
         {
             UUID keyValue = (UUID)iter.next();
-            DataItemsList.add(DB.get(keyValue));
+            Pair<UUID, DataItem> newPair = new Pair(keyValue, DB.get(keyValue));
+            DataItemsAndIDsList.add(newPair);
         }
-        return DataItemsList;
+        return DataItemsAndIDsList;
       //  return null;
     }
 

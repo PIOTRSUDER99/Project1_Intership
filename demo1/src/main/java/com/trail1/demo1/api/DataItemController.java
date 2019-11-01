@@ -4,12 +4,14 @@ import com.trail1.demo1.model.DataItem;
 import com.trail1.demo1.service.DataItemService;
 
 
+import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -27,12 +29,17 @@ public class DataItemController {
     private DataItemService dataItemService;
 
     @PostMapping
-   // @ResponseStatus
     public void addDataItem(@Valid @NotNull @RequestBody DataItem dataItem)
     {
         dataItemService.addDataItem(dataItem);
     }
 
+
+    @GetMapping
+    public List<Pair<UUID, DataItem>> getAllDataItems()
+    {
+        return dataItemService.getAllDataItems();
+    }
 
     @GetMapping(path = "{id}") //or     @GetMapping(value = "/{id}")
     public DataItem getDataItemById(@PathVariable("id") UUID id)

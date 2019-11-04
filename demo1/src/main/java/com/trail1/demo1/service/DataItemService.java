@@ -29,6 +29,11 @@ public class DataItemService {
         return dataItemDao.insertDataItem(id, dataItem);
     }
 
+    public boolean addDataItemWithId(UUID id, DataItem dataItem)
+    {
+        return dataItemDao.insertDataItem(id, dataItem);
+    }
+
     public DataItem getDataItemById(UUID id)
     {
         return dataItemDao.findDataItemById(id);

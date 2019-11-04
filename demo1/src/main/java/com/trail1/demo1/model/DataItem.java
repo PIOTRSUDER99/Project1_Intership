@@ -6,18 +6,12 @@ import java.util.UUID;
 public class DataItem {
 
     private final String name;
-  //  private final UUID id;
 
-    public DataItem(@JsonProperty("name")  String name, @JsonProperty("id") UUID id)
+
+    public DataItem(@JsonProperty("name")  String name)
     {
         this.name = name;
-    //    this.id = id;
     }
-
-  //  public UUID getId()
-  //  {
-  //      return id;
-  //  }
 
     public String getName()
     {

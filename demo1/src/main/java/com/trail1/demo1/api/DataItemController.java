@@ -34,6 +34,11 @@ public class DataItemController {
         dataItemService.addDataItem(dataItem);
     }
 
+    @PostMapping(path = "{id}")
+    public void addDataItemWithId(@PathVariable("id") UUID id, @Valid @NotNull @RequestBody DataItem dataItem)
+    {
+        dataItemService.addDataItemWithId(id, dataItem);
+    }
 
     @GetMapping
     public List<Pair<UUID, DataItem>> getAllDataItems()
